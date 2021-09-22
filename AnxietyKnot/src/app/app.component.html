@@ -8,7 +8,7 @@
         ngModel
         required
         minlength="3"
-        placeholder="Post Title"
+        placeholder="Journal Title"
         #title="ngModel">
       <mat-error *ngIf="title.invalid">Please enter a post title.</mat-error>
     </mat-form-field>
@@ -19,14 +19,14 @@
         name="content"
         ngModel
         required
-        placeholder="Post Content"
+        placeholder="Journal Entry"
         #content="ngModel"></textarea>
       <mat-error *ngIf="content.invalid">Please enter a post title.</mat-error>
     </mat-form-field>
     <button
       mat-raised-button
       color="accent"
-      type="submit">Save Post</button>
+      type="submit">Save Journal Entry</button>
   </form>
 </mat-card>
 <mat-accordion multi="true" *ngIf="posts.length > 0">
@@ -37,8 +37,8 @@
     <p>{{ post.content }}</p>
     <mat-action-row>
       <button mat-button color="primary">EDIT</button>
-      <button mat-button color="warn">DELETE</button>
+      <button mat-button color="warn" (click)="onDelete(post.id)">DELETE</button>
     </mat-action-row>
   </mat-expansion-panel>
 </mat-accordion>
-<p class="info-text mat-body-1" *ngIf="posts.length <= 0">No posts added yet!</p>
+<p class="info-text mat-body-1" *ngIf="posts.length <= 0">No journal entries added yet!</p>
