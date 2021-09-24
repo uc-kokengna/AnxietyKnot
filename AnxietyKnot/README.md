@@ -1,27 +1,33 @@
-# AnxietyKnot
+# Anxiety Knot
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 12.2.6.
+An anti-anxiety journaling web application that provides users a self-guided journey, to assist in better understanding their own thoughts and feelings relating to anxiety, while challenging the way they think about them to help overcome and manage those anxieties. The user will metaphorically untie and untangle their anxieties and will be provided with a tip/advice on how to deal with their problems after a set number of entries.
 
-## Development server
+### Warning:
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+- Install Node.js on your personal machine (this allows us to run our server)
+- Before you start the applicaiton, you will need to run 'npm install' to download all the required dependencies
 
-## Code scaffolding
+## Front-End Guide
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
-## Build
+Technologies used:
+- Angular
+- Angular Material
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## Back-End Guide
 
-## Running unit tests
+Run `npm run start:server` for a dev server. Navigate to `http://localhost:3000/`.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Technolgies used:
+- Node.js (server)
+- Express.js (framework for node.js)
+- MongoDB (database)
+- Mongoose (builds on MongoDB's native drivers)
 
-## Running end-to-end tests
+--- 
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+### Database
 
-## Further help
+I will need to set you up with credentials to read and write to the database along with giving your IP access to the database.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
