@@ -5,7 +5,7 @@ An anti-anxiety journaling web application that provides users a self-guided jou
 ### Warning:
 
 - Install Node.js on your personal machine (this allows us to run our server)
-- Before you start the applicaiton, you will need to run 'npm install' to download all the required dependencies
+- Before you start the application, you will need to run 'npm install' to download all the required dependencies
 
 ## Front-End Guide
 
