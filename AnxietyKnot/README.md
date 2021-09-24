@@ -12,8 +12,8 @@ An anti-anxiety journaling web application that provides users a self-guided jou
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`.
 
 Technologies used:
-- Angular
-- Angular Material
+- Angular (javascript framework)
+- Angular Material (component library)
 
 ## Back-End Guide
 
