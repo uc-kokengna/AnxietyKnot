@@ -35,6 +35,7 @@ export class AppComponent {
   getPosts() {
     // send http request from angular app to our backend
     this.http.get<{message: string; posts: any}>('http://localhost:3000/api/posts')
+    // on the backend id is stored with an underscore, here we map it before we subscribe to it to change it to just id
     .pipe(map((postData) => {
       return postData.posts.map((post: { title: any; content: any; _id: any; }) => {
         return {
@@ -63,6 +64,7 @@ export class AppComponent {
       .post<{ message: string, postId: string }>("http://localhost:3000/api/posts", post)
       .subscribe(responseData => {
         const id = responseData.postId;
+        // updates id of post we created
         post.id = id;
         // updating local data if we have a successful response from server-side
         this.posts.push(post);
@@ -84,10 +86,13 @@ export class AppComponent {
   }
 
   deletePost(postId: string) {
+    // adds our dynamic parameter to use on the backend
     this.http.delete("http://localhost:3000/api/posts/" + postId)
     .subscribe(() => {
+      // filters posts to make sure we keep all entries where the postIds are not equal (we want to delete the one that is)
       const updatedPosts = this.posts.filter(post => post.id !== postId);
       this.posts = updatedPosts;
+      // send copy of posts so the app knows about it
       this.postsUpdated.next([...this.posts]);
     });
   }
