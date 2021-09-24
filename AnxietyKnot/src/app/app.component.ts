@@ -21,6 +21,7 @@ export class AppComponent {
 
   ngOnInit() {
     this.getPosts();
+    // allows us to render posts when they are there
     this.postsSub = this.getPostUpdateListener()
     .subscribe((posts: Post[]) => {
       this.posts = posts;
@@ -32,6 +33,7 @@ export class AppComponent {
   }
 
   getPosts() {
+    // send http request from angular app to our backend
     this.http.get<{message: string; posts: any}>('http://localhost:3000/api/posts')
     .pipe(map((postData) => {
       return postData.posts.map((post: { title: any; content: any; _id: any; }) => {
@@ -42,8 +44,11 @@ export class AppComponent {
         };
       });
     }))
+    // listen for request and retrieve body
     .subscribe(transformedPosts => {
+      // setting our posts to the posts that are coming from the server (since they have the same format)
       this.posts = transformedPosts;
+      // inform our app about this update, passing a copy of this.posts so we can't edit them
       this.postsUpdated.next([...this.posts]);
     });
   }
@@ -59,7 +64,9 @@ export class AppComponent {
       .subscribe(responseData => {
         const id = responseData.postId;
         post.id = id;
+        // updating local data if we have a successful response from server-side
         this.posts.push(post);
+        // inform our app about this update, passing a copy of this.posts so we can't edit them
         this.postsUpdated.next([...this.posts]);
       });
   }
