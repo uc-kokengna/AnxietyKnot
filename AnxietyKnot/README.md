@@ -17,7 +17,7 @@ Technologies used:
 
 ## Back-End Guide
 
-Run `npm run start:server` for a dev server. Navigate to `http://localhost:3000/`.
+Run `npm run start:server` for a dev server. Navigate to `http://localhost:3000/api/posts`.
 
 Technolgies used:
 - Node.js (server)
