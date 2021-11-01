@@ -1,4 +1,15 @@
-<mat-card>
+    <!--card for prompt, need to make sure it is changed or hidden when
+    no prompt is needed.-->
+
+  <mat-accordion multi="true" *ngIf="prompts.length > 0">
+    <mat-expansion-panel *ngFor="let prompt of prompts">
+      <mat-expansion-panel-header>
+        {{ prompt.title }}
+      </mat-expansion-panel-header>
+      <p>{{ prompt.content }}</p>
+    </mat-expansion-panel>
+  </mat-accordion>
+
   <form (submit)="onAddPost(postForm)" #postForm="ngForm">
     <mat-form-field>
       <input
@@ -12,6 +23,7 @@
         #title="ngModel">
       <mat-error *ngIf="title.invalid">Please enter a post title.</mat-error>
     </mat-form-field>
+
     <mat-form-field>
       <textarea
         matInput
@@ -28,7 +40,7 @@
       color="accent"
       type="submit">Save Journal Entry</button>
   </form>
-</mat-card>
+
 <mat-accordion multi="true" *ngIf="posts.length > 0">
   <mat-expansion-panel *ngFor="let post of posts">
     <mat-expansion-panel-header>

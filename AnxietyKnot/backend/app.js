@@ -7,6 +7,11 @@ const express = require('express');
 const bodyParser = require('body-parser');
 // imports our Post model from our mongoose blueprint
 const Post = require('./models/post')
+// import prompt model from mongoose blueprint
+const Prompt = require('./models/prompt')
+
+
+
 // we are using mongoose instead of mongodb's drivers to connect and interact with our database
 // mongoose also uses schemas, that will allow us to store structured data and fetch it easily
 const mongoose = require('mongoose');
@@ -74,6 +79,19 @@ app.get('/api/posts',(req, res, next) => {
     res.status(200).json({
       message: 'Posts fetched successfully!',
       posts: documents
+    });
+  });
+});
+
+//trying to structure a get request to retrieve prompts from db
+app.get('/api/prompts',(req, res, next) => {
+  // mongoose's 'find' method will return all entries in our specified collection
+  //we will need ot add parameters to bring up a specific prompt
+  Prompt.find().then(documents => {
+    // return data in a json format showing it was a sucesss with status code 200
+    res.status(200).json({
+      message: 'Prompts fetched successfully!',
+      prompts: documents
     });
   });
 });

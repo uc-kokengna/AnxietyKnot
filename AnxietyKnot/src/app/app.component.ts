@@ -1,9 +1,12 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from "./post.model";
+import {Prompt} from "./prompt.model";
 import { Subject, Subscription } from "rxjs";
 import { NgForm } from '@angular/forms';
 import { map } from 'rxjs/operators';
+import { stringify } from 'querystring';
+import { analyzeAndValidateNgModules } from '@angular/compiler';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +17,8 @@ import { map } from 'rxjs/operators';
 export class AppComponent {
   title = 'AnxietyKnot';
   posts: Post[] = [];
+  /// adding array to hold test prompt data
+  prompts: Prompt[] = [];
   private postsUpdated = new Subject<Post[]>();
   private postsSub!: Subscription;
 
@@ -31,6 +36,24 @@ export class AppComponent {
   ngOnDestroy() {
     this.postsSub.unsubscribe();
   }
+
+  //try to write function for "getprompts"
+  getPrompts() {
+    this.http.get<{message: string; prompts: any}>('http://localhost:3000/api/posts')
+    .pipe(map((promptData) => {
+      return promptData.prompts.map((prompt: { title: any; content: any; _id: any; }) => {
+        return {
+          title: prompt.title,
+          content: prompt.content,
+          id: prompt._id
+        };
+      });
+    })).subscribe(transformedPrompts => {
+      this.posts = transformedPrompts;
+
+    });
+  }
+
 
   getPosts() {
     // send http request from angular app to our backend
