@@ -14,11 +14,15 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCommonModule } from '@angular/material/core';
+import { PostCreateComponent } from './post-create/post-create.component';
+import { PostListComponent } from './post-list/post-list.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PostCreateComponent,
+    PostListComponent
   ],
   imports: [
     BrowserModule,
