@@ -11,6 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatCommonModule } from '@angular/material/core';
+import { PostCreateComponent } from './post-create/post-create.component';
+import { PostListComponent } from './post-list/post-list.component';
 import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -26,13 +28,11 @@ import { CommonModule } from '@angular/common';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { QuillModule } from 'ngx-quill';
 
-
-
-
-
 @NgModule({
   declarations: [
     AppComponent,
+    PostCreateComponent,
+    PostListComponent
     NavComponent,
     JournalBookComponent,
     ResourceComponent,
