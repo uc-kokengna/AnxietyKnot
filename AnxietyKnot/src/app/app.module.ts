@@ -32,7 +32,7 @@ import { QuillModule } from 'ngx-quill';
   declarations: [
     AppComponent,
     PostCreateComponent,
-    PostListComponent
+    PostListComponent,
     NavComponent,
     JournalBookComponent,
     ResourceComponent,
