@@ -32,13 +32,10 @@
             "styles": [
               "src/custom-theme.scss",
               "src/styles.css",
-              { "input": "node_modules/quill/dist/quill.core.css" },
-              { "input": "node_modules/quill/dist/quill.snow.css" },
-              { "input": "node_modules/quill/dist/quill.bubble.css" }
+              "./node_modules/quill/dist/quill.core.css",
+              "./node_modules/quill/dist/quill.snow.css"
             ],
-            "scripts": [
-             
-              
+            "scripts": ["./node_modules/quill/dist/quill.js"
             ]
           },
           "configurations": {

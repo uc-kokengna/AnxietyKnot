@@ -22,6 +22,11 @@ import { MatMenuModule } from '@angular/material/menu';
 import { ResourceComponent } from './resource/resource.component';
 import { TrackerComponent } from './tracker/tracker.component';
 import { EntryComponent } from './entry/entry.component';
+import { CommonModule } from '@angular/common';
+import { NgxChartsModule } from '@swimlane/ngx-charts';
+import { QuillModule } from 'ngx-quill';
+
+
 
 
 
@@ -52,6 +57,9 @@ import { EntryComponent } from './entry/entry.component';
     MatListModule,
     MatGridListModule,
     MatMenuModule,
+    CommonModule,
+    NgxChartsModule,
+    QuillModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
