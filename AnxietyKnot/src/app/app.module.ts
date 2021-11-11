@@ -27,6 +27,12 @@ import { EntryComponent } from './entry/entry.component';
 import { CommonModule } from '@angular/common';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { QuillModule } from 'ngx-quill';
+import { PromptedEntryComponent } from './prompted-entry/prompted-entry.component';
+
+//imports for prompted page
+import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSelectModule} from '@angular/material/select';
+
 
 @NgModule({
   declarations: [
@@ -37,7 +43,8 @@ import { QuillModule } from 'ngx-quill';
     JournalBookComponent,
     ResourceComponent,
     TrackerComponent,
-    EntryComponent
+    EntryComponent,
+    PromptedEntryComponent
   ],
   imports: [
     BrowserModule,
@@ -59,7 +66,9 @@ import { QuillModule } from 'ngx-quill';
     MatMenuModule,
     CommonModule,
     NgxChartsModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    MatCheckboxModule,
+    MatSelectModule
   ],
   providers: [],
   bootstrap: [AppComponent]
