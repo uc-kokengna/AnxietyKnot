@@ -10,7 +10,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatExpansionModule } from '@angular/material/expansion';
-import { MatCommonModule } from '@angular/material/core';
+import { MatCommonModule, MatNativeDateModule } from '@angular/material/core';
 import { NavComponent } from './nav/nav.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { MatSidenavModule } from '@angular/material/sidenav';
@@ -25,10 +25,11 @@ import { EntryComponent } from './entry/entry.component';
 import { CommonModule } from '@angular/common';
 import { NgxChartsModule } from '@swimlane/ngx-charts';
 import { QuillModule } from 'ngx-quill';
-
-
-
-
+import {MatDatepickerModule} from '@angular/material/datepicker'; 
+import {MatSnackBarModule} from '@angular/material/snack-bar';
+import {MatSliderModule} from '@angular/material/slider'; 
+import {MatDialogModule} from '@angular/material/dialog'; 
+import { NgRatingBarModule } from 'ng-rating-bar';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,13 @@ import { QuillModule } from 'ngx-quill';
     MatMenuModule,
     CommonModule,
     NgxChartsModule,
-    QuillModule.forRoot()
+    QuillModule.forRoot(),
+    MatDatepickerModule,
+    MatNativeDateModule,
+    MatSnackBarModule,
+    MatSliderModule,
+    MatDialogModule,
+    NgRatingBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
