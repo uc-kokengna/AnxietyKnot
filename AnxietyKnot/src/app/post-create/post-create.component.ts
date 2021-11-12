@@ -1,6 +1,7 @@
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { ActivatedRoute, ParamMap } from "@angular/router";
+import Quill from "quill";
 import { Post } from "../post.model";
 
 import { PostsService } from "../posts.service";
@@ -16,6 +17,7 @@ export class PostCreateComponent implements OnInit{
   private mode = 'create';
   private postId: string;
   public post: Post;
+  public static text: string;
 
   constructor(public postsService: PostsService, public route: ActivatedRoute) {}
 
@@ -29,6 +31,17 @@ export class PostCreateComponent implements OnInit{
         this.mode = 'create';
         this.postId = null;
       }
+    });
+
+    var options = {
+      placeholder: 'Waiting for your precious content',
+      theme: 'snow'
+    };
+
+    var editor = new Quill('#quillEditor', options);
+
+    editor.on('text-change', function() {
+      PostCreateComponent.text = editor.getText() + "";
     });
   }
 
@@ -44,5 +57,6 @@ export class PostCreateComponent implements OnInit{
     }
     form.resetForm();
   }
+
 }
 
