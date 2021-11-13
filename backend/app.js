@@ -15,7 +15,11 @@ const mongoose = require('mongoose');
 const app = express();
 
 // connecting our app to our mongodb database using my credentials
-mongoose.connect("mongodb+srv://hornunjb:UnOQUPwiXXaCz90a@cluster0.ltjdk.mongodb.net/AnxietyKnot?retryWrites=true&w=majority")
+mongoose.connect(
+  "mongodb+srv://hornunjb:" +
+    process.env.MONGO_ATLAS_PW +
+    "@cluster0.ltjdk.mongodb.net/AnxietyKnot?retryWrites=true&w=majority"
+  )
 .then(() => {
   console.log("Connected to database!");
 })
@@ -42,7 +46,7 @@ app.use((req, res, next) => {
   'Origin, X-Requested-With, Content-Type, Accept'
   );
   res.setHeader('Access-Control-Allow-Methods',
-  'GET, POST, PATCH, PUT, DELETE, OPTIONS'
+  'GET, POST, PATCH, DELETE, OPTIONS'
   );
   next();
 });
@@ -63,18 +67,6 @@ app.post("/api/posts", (req, res, next) => {
       message: "Post added successfully",
       postId: createdPost._id
     });
-  });
-});
-
-app.put("/api/posts/:id", (req, res, next) => {
-  const post = new Post({
-    _id: req.body.id,
-    title: req.body.title,
-    content: req.body.content
-  });
-  Post.updateOne({_id: req.params.id}, post).then(result => {
-    console.log(result);
-    res.status(200).json({message: 'Update successful!'});
   });
 });
 

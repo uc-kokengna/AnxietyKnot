@@ -1,0 +1,11 @@
+{
+  "name": "anxiety-knot",
+  "version": "0.0.0",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "mongoose": "^6.0.7",
+    "express": "^4.17.1"
+
+  }
+}

@@ -13,8 +13,7 @@ const routes: Routes = [
   {path:'tracker', component:TrackerComponent},
   {path:'entry', component:EntryComponent},
   {path:'list', component:PostListComponent},
-  {path:'create', component:PostCreateComponent},
-  {path:'edit/:postId', component:PostCreateComponent}
+  {path:'create', component:PostCreateComponent}
 ];
 
 @NgModule({

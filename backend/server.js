@@ -2,7 +2,9 @@
 
 // imports
 // importing our express app
-const app = require("./backend/app");
+// default: const app = require("./backend/app");
+
+const app = require("./app");
 const debug = require("debug")("node-angular");
 const http = require("http");
 
@@ -51,11 +53,15 @@ const onListening = () => {
   debug("Listening on " + bind);
 };
 
-// setting port
+///////SETTING PORT
+/* CHANGE PORT TO PORT PROVIDED BY HOSTING PROVIDER
+WHEN TIGHTENING SECURITY */
+
 const port = normalizePort(process.env.PORT || "3000");
 app.set("port", port);
 
 // creating server and listeners
+
 const server = http.createServer(app);
 server.on("error", onError);
 server.on("listening", onListening);

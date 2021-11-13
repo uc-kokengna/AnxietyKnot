@@ -59,12 +59,7 @@ import { QuillModule } from 'ngx-quill';
     MatMenuModule,
     CommonModule,
     NgxChartsModule,
-    QuillModule.forRoot({
-      modules: {
-        syntax: true,
-      }
-    })
-
+    QuillModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
